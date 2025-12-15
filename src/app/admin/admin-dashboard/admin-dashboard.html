@@ -1,0 +1,13 @@
+<div class="wrap">
+  <header>
+    <h1>Welcome, {{ displayName }}</h1>
+    <button class="logout" (click)="logout()">Logout</button>
+  </header>
+
+  <nav class="actions">
+    <button (click)="nav('reviews')">Manage Reviews</button>
+    <button (click)="nav('users')">Manage Users</button>
+    <button (click)="nav('cars')">Manage Cars</button>
+    <button class="logout" (click)="logout()">Logout</button>
+  </nav>
+</div>

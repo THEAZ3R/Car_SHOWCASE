@@ -1,0 +1,36 @@
+<div class="container">
+  <header>
+    <button class="btn-back" (click)="goToDashboard()">← Back to Dashboard</button>
+    <h1>Manage Users</h1>
+  </header>
+
+  <div class="table-wrapper">
+    <table class="users-table">
+      <thead>
+        <tr>
+          <th>Display Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users$ | async">
+          <td>{{ user.displayName }}</td>
+          <td>{{ user.email }}</td>
+          <td>
+            <span class="role-badge" [class.admin]="user.role === 'admin'">
+              {{ user.role }}
+            </span>
+          </td>
+          <td>
+            <button class="btn-delete" (click)="deleteUser(user.id!)">Delete</button>
+          </td>
+        </tr>
+        <tr *ngIf="(users$ | async)?.length === 0">
+          <td colspan="4" class="no-users">No users found.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

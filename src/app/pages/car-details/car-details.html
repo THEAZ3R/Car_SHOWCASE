@@ -1,0 +1,29 @@
+<div class="car-details-container">
+  <header>
+    <h1>Car Showcase</h1>
+    <button class="logout-btn" (click)="logout()">Logout</button>
+  </header>
+
+  <div class="controls">
+    <label for="carSelect">Select a car:</label>
+    <select id="carSelect" (change)="onCarChange($event)">
+  <option *ngFor="let c of cars">{{ c.manufacturer }} {{ c.name }}</option>
+</select>
+
+  </div>
+
+  <div class="canvas-wrapper">
+    <canvas #canvas></canvas>
+    <div class="loading" *ngIf="isLoading">Loading...</div>
+    <div class="error" *ngIf="error">{{ error }}</div>
+  </div>
+
+  <div class="car-info" *ngIf="car">
+    <h2>{{ car.manufacturer }} {{ car.name }}</h2>
+    <p>Year: {{ car.year }}</p>
+    <p>Color: <span [style.background]="car.colour" class="color-box"></span></p>
+     <button class="reviews-btn" (click)="goToReviews()">
+        View Reviews
+      </button>
+  </div>
+</div>

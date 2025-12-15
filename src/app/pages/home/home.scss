@@ -1,0 +1,51 @@
+.space-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  z-index: 0;
+}
+
+.overlay {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  background: rgba(7, 10, 18, 0.45);  // slight tint so the text is readable
+  pointer-events: none;               // let mouse events reach the canvas
+}
+
+.overlay > * { pointer-events: auto; } // but buttons must work
+
+/* --- cosmetic stuff below --- */
+.logo { font-size: 4rem; margin: 0 0 .5rem; }
+.tagline { font-size: 1.25rem; margin: 0 0 2rem; opacity: .8; }
+
+.btn {
+  border: none;
+  padding: .75rem 1.75rem;
+  margin: .5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background .25s;
+}
+.primary   { background: #4169e1; color: #fff; }
+.secondary { background: transparent; color: #fff; border: 1px solid #fff; }
+
+.social {
+  position: absolute;
+  bottom: 2rem;
+  display: flex;
+  gap: 1.25rem;
+  font-size: 1.5rem;
+}
+.social a { color: #fff; opacity: .7; }
+.social a:hover { opacity: 1; }

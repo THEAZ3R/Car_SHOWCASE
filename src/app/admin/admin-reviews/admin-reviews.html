@@ -1,0 +1,46 @@
+<div class="container">
+  <header>
+    <button class="btn-back" (click)="goToDashboard()">← Back to Dashboard</button>
+    <h1>Manage Reviews</h1>
+  </header>
+
+  <div class="table-wrapper">
+    <table class="reviews-table">
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Car ID</th>
+          <th>Comment</th>
+          <th>Rating</th>
+          <th>Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let review of reviews$ | async">
+          <td>
+            <div class="user-info">
+              <span class="name">{{ review.userData?.displayName || review.userId }}</span>
+            </div>
+          </td>
+          <td><code>{{ review.carId }}</code></td>
+          <td class="comment">{{ review.comment }}</td>
+          <td>
+            <div class="rating">
+              <span *ngFor="let star of [1,2,3,4,5]" class="star" [class.filled]="star <= review.rating">
+                ★
+              </span>
+            </div>
+          </td>
+          <td class="date">{{ review.createdAt?.toDate?.() | date:'short' }}</td>
+          <td>
+            <button class="btn-delete" (click)="deleteReview(review.id!)">Delete</button>
+          </td>
+        </tr>
+        <tr *ngIf="(reviews$ | async)?.length === 0">
+          <td colspan="6" class="no-reviews">No reviews yet.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

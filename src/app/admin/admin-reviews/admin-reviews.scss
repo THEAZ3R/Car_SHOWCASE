@@ -1,0 +1,116 @@
+:host {
+  display: block;
+  padding: 2rem;
+  background: #111;
+  color: #fff;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+
+  .btn-back {
+    background: #222;
+    border: 1px solid #444;
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    &:hover { background: #333; }
+  }
+
+  h1 { margin: 0; font-size: 2rem; }
+}
+
+.table-wrapper {
+  background: #1a1a1a;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #333;
+}
+
+.reviews-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  thead {
+    background: #222;
+    th {
+      padding: 1rem;
+      text-align: left;
+      font-weight: 600;
+      border-bottom: 2px solid #333;
+    }
+  }
+
+  tbody {
+    tr {
+      border-bottom: 1px solid #333;
+      &:hover { background: #2a2a2a; }
+
+      td {
+        padding: 1rem;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+.user-info {
+  .name {
+    font-weight: 600;
+    color: #fff;
+  }
+}
+
+.comment {
+  max-width: 400px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rating {
+  display: flex;
+  gap: 2px;
+  
+  .star {
+    color: #555;
+    font-size: 1.2rem;
+    
+    &.filled {
+      color: #ffc107;
+    }
+  }
+}
+
+.date {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.btn-delete {
+  background: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  &:hover { background: #c82333; }
+}
+
+.no-reviews {
+  text-align: center;
+  color: #888;
+  padding: 2rem !important;
+}

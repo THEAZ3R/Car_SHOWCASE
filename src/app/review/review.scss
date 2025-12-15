@@ -1,0 +1,281 @@
+.container {
+  min-height: 100vh;
+  background: #0f0f0f;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 12px;
+
+  h1 {
+    color: white;
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+}
+
+.back-btn, .logout-btn {
+  padding: 10px 24px;
+  background: #2a2a2a;
+  color: white;
+  border: 1px solid #444;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: #333;
+    border-color: #666;
+    transform: translateY(-2px);
+  }
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 60px 20px;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.car-header {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+
+  h2 {
+    color: #e0e0e0;
+    margin: 0 0 10px 0;
+    font-size: 2rem;
+  }
+
+  .car-year {
+    color: #999;
+    margin: 0;
+    font-size: 1.1rem;
+  }
+}
+
+.review-form {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 24px;
+
+  h3 {
+    margin: 0 0 20px 0;
+    color: #e0e0e0;
+    font-size: 1.4rem;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #e0e0e0;
+    }
+
+    select, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #444;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: inherit;
+      background: #2a2a2a;
+      color: #e0e0e0;
+      transition: border-color 0.3s ease;
+
+      &:focus {
+        outline: none;
+        border-color: #4a9eff;
+      }
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: #4a9eff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover:not(:disabled) {
+      background: #3a8eef;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(74, 158, 255, 0.4);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.login-prompt {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 40px;
+  text-align: center;
+
+  p {
+    color: #999;
+    font-size: 1.1rem;
+    margin: 0;
+  }
+}
+
+.reviews-section {
+  h3 {
+    color: #e0e0e0;
+    margin: 0 0 20px 0;
+    font-size: 1.5rem;
+    padding: 0 5px;
+  }
+}
+
+.no-reviews {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 40px;
+  text-align: center;
+
+  p {
+    color: #999;
+    font-size: 1.1rem;
+    margin: 0;
+  }
+}
+
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.review-card {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.7);
+    border-color: #444;
+  }
+
+  .review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    gap: 16px;
+  }
+
+  .review-author-section {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .review-author {
+    font-weight: 700;
+    color: #e0e0e0;
+    font-size: 1.1rem;
+  }
+
+  .review-date {
+    font-size: 0.85rem;
+    color: #666;
+  }
+
+  .review-rating {
+    color: #ffc107;
+    font-size: 1.2rem;
+    white-space: nowrap;
+  }
+
+  .review-comment {
+    color: #b0b0b0;
+    line-height: 1.6;
+    margin: 0;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .header {
+    flex-wrap: wrap;
+    gap: 10px;
+
+    h1 {
+      font-size: 1.5rem;
+      order: -1;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  .car-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .review-card .review-header {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

@@ -1,0 +1,60 @@
+<div class="container">
+  <header>
+    <button class="btn-back" (click)="goToDashboard()">← Back to Dashboard</button>
+    <h1>Manage Cars</h1>
+  </header>
+
+  <!-- Add/Edit Form -->
+  <section class="form-section" #formSection [class.editing]="isEditing">
+    <h2>{{ isEditing ? 'Edit Car' : 'Add New Car' }}</h2>
+    
+    <div *ngIf="isEditing" class="edit-banner">
+      ✏️ Editing: {{ form.manufacturer }} {{ form.year }}
+    </div>
+
+    <input [(ngModel)]="form.name" placeholder="Name (e.g. 2018 Alfa Romeo)" />
+    <input [(ngModel)]="form.manufacturer" placeholder="Manufacturer" />
+    <input [(ngModel)]="form.year" type="number" placeholder="Year" />
+    <input [(ngModel)]="form.colour" type="color" title="Colour" />
+
+    <!-- Model Selection (Local) -->
+    <div class="upload-box">
+      <label class="file-label">
+        <input type="file" accept=".glb,.gltf" (change)="onFileSelected($event)" hidden />
+        <span class="btn-upload">Select 3D Model (.glb/.gltf) from assets/models/</span>
+      </label>
+
+      <div *ngIf="selectedFileName" class="file-name">
+        Selected: {{ selectedFileName }}
+      </div>
+
+      <div *ngIf="form.modelFileName" class="model-linked">
+        ✓ Model: {{ form.modelFileName.split('/').pop() }}
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn-save" (click)="saveCar()">Save Car</button>
+      <button *ngIf="isEditing" class="btn-cancel" (click)="resetForm()">Cancel</button>
+    </div>
+  </section>
+
+  <!-- Cars List -->
+  <section class="list-section">
+    <h2>Cars in Database</h2>
+    <div class="car-grid">
+      <div class="car-card" *ngFor="let car of cars$ | async">
+        <h3>{{ car.manufacturer }} {{ car.year }}</h3>
+        <p class="name">{{ car.name }}</p>
+        <span class="colour" [style.background]="car.colour"></span>
+        <p class="model-status" [class.present]="!!car.modelFileName">
+          {{ car.modelFileName ? '✓ Model' : 'No model' }}
+        </p>
+        <div class="card-actions">
+          <button class="btn-edit" (click)="editCar(car)">Edit</button>
+          <button class="btn-delete" (click)="deleteCar(car.id!)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

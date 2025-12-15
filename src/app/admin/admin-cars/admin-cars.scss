@@ -1,0 +1,244 @@
+:host {
+  display: block;
+  padding: 2rem;
+  background: #111;
+  color: #fff;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+
+  .btn-back {
+    background: #222;
+    border: 1px solid #444;
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    &:hover { background: #333; }
+  }
+
+  h1 { margin: 0; font-size: 2rem; }
+}
+
+.form-section, .list-section {
+  background: #1a1a1a;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+
+  h2 { margin-top: 0; }
+
+  input {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.6rem;
+    border: 1px solid #444;
+    background: #222;
+    color: #fff;
+    border-radius: 6px;
+  }
+}
+
+.form-section.editing {
+  border: 2px solid #007bff;
+  background: #0a1628;
+}
+
+.edit-banner {
+  background: #007bff;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.upload-box {
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 2px dashed #444;
+  border-radius: 8px;
+
+  .file-label {
+    cursor: pointer;
+    .btn-upload {
+      background: #007bff;
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      display: inline-block;
+      &:hover { background: #0056b3; }
+    }
+  }
+
+  .file-name { margin-top: 0.5rem; opacity: 0.8; }
+  
+  .progress-bar {
+    margin-top: 0.5rem;
+    height: 6px;
+    background: #333;
+    border-radius: 3px;
+    overflow: hidden;
+    .progress {
+      height: 100%;
+      background: #007bff;
+      transition: width 0.2s;
+    }
+  }
+
+  .model-linked { margin-top: 0.5rem; color: #28a745; }
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+
+  .btn-save {
+    background: #28a745;
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    &:hover { background: #218838; }
+  }
+
+  .btn-cancel {
+    background: #6c757d;
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    &:hover { background: #5a6268; }
+  }
+}
+
+.car-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+
+  .car-card {
+    background: #222;
+    padding: 1.25rem;
+    border-radius: 12px;
+    border: 1px solid #333;
+
+    h3 { margin: 0 0 0.5rem; }
+    .name { opacity: 0.8; margin-bottom: 0.5rem; }
+
+    .colour {
+      display: inline-block;
+      width: 1.2rem;
+      height: 1.2rem;
+      border-radius: 50%;
+      border: 2px solid #fff;
+    }
+
+    .model-status {
+      margin: 0.75rem 0;
+      font-size: 0.9rem;
+      &.present { color: #28a745; }
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+
+      .btn-edit {
+        flex: 1;
+        background: #007bff;
+        color: #fff;
+        border: none;
+        padding: 0.4rem;
+        border-radius: 6px;
+        cursor: pointer;
+        &:hover { background: #0056b3; }
+      }
+
+      .btn-delete {
+        flex: 1;
+        background: #dc3545;
+        color: #fff;
+        border: none;
+        padding: 0.4rem;
+        border-radius: 6px;
+        cursor: pointer;
+        &:hover { background: #c82333; }
+      }
+    }
+  }
+// Add these new styles
+.upload-box.uploading {
+  border-color: #007bff;
+  background: #0a1628;
+}
+
+// Add these new styles
+.upload-box.uploading {
+  border-color: #007bff;
+  background: #0a1628;
+}
+
+.error-message {
+  margin-top: 0.5rem;
+  color: #dc3545;
+  font-weight: 600;
+}
+
+.success-message {
+  margin-top: 0.5rem;
+  color: #28a745;
+  font-weight: 600;
+}
+
+.btn-upload.disabled {
+  background: #555;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.btn-save:disabled {
+  background: #555;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+.error-message {
+  margin-top: 0.5rem;
+  color: #dc3545;
+  font-weight: 600;
+}
+
+.success-message {
+  margin-top: 0.5rem;
+  color: #28a745;
+  font-weight: 600;
+}
+
+.btn-upload.disabled {
+  background: #555;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.btn-save:disabled {
+  background: #555;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+}
